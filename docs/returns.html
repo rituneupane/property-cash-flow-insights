@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Property Cash Flow · Returns</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <a class="brand" href="index.html">
+        <div class="mark">RN</div>
+        <div>
+          <h1>Property cash flow</h1>
+          <p class="tag">Ritu Neupane · 145,000 SF · Jan 2026 – Dec 2030</p>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html">Overview</a>
+        <a href="operations.html">Operations</a>
+        <a class="on" href="returns.html">Returns</a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap">
+    <p class="lede">Loan is $18.58 million, 70% LTV, 5.5%, 30-year amortization. Monthly debt service is $105,478. Equity is $7.96 million. Money partner 80%, developer 20%, 8% pref, then 50 / 50.</p>
+    <div class="card" style="margin-top:0"><h2>Coverage</h2><p class="note">DSCR vs cash-on-cash on $8.0M equity. 2029 stays above 1.25x.</p><canvas id="coverChart"></canvas></div>
+    <div class="row2">
+      <div class="card" style="margin-top:0"><h2>Capital stack</h2>
+        <table><thead><tr><th></th><th>LP 80%</th><th>GP 20%</th></tr></thead>
+        <tbody>
+          <tr><td>Equity</td><td>$6.37M</td><td>$1.59M</td></tr>
+          <tr><td>8% pref</td><td>$510k / yr</td><td>$127k / yr</td></tr>
+          <tr><td>IRR</td><td>38.9%</td><td>89.5%</td></tr>
+          <tr><td>Multiple</td><td>4.06x</td><td>14.6x</td></tr>
+        </tbody></table>
+      </div>
+      <div class="card" style="margin-top:0"><h2>Exit</h2>
+        <table>
+          <tbody>
+            <tr><td>2031 NOI</td><td>$2.07M</td></tr>
+            <tr><td>Exit cap</td><td>8.5%</td></tr>
+            <tr><td>Sale price</td><td>$24.40M</td></tr>
+            <tr><td>Balloon (mo 60)</td><td>$17.18M</td></tr>
+            <tr><td>Unlevered IRR</td><td>9.4%</td></tr>
+            <tr><td>Levered IRR</td><td>53.0%</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <div class="take">Debt holds through the rollover. Returns are driven by leverage and the 2030 sale. LP multiple is <strong>4.06x</strong>. GP multiple is <strong>14.6x</strong>.</div>
+  </div>
+  <footer>Figures match the source 72-month pro forma.</footer>
+  <script>
+    const navy="#12263A", gold="#C4A574";
+    Chart.defaults.color="#5C6B73";
+    new Chart(document.getElementById("coverChart"),{type:"bar",data:{labels:["2026","2027","2028","2029","2030"],datasets:[{label:"DSCR",data:[2.49,2.86,2.89,1.41,1.49],backgroundColor:navy},{label:"Cash-on-cash",data:[23.2,29.1,29.5,6.0,7.3],type:"line",yAxisID:"y1",borderColor:gold,pointRadius:4,borderWidth:2}]},options:{plugins:{legend:{position:"bottom"}},scales:{y:{title:{display:true,text:"DSCR"},suggestedMax:3.2,grid:{color:"#EDE7DB"}},y1:{position:"right",grid:{drawOnChartArea:false},ticks:{callback:v=>v+"%"},title:{display:true,text:"CoC"}},x:{grid:{display:false}}}}});
+  </script>
+</body>
+</html>

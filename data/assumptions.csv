@@ -1,0 +1,25 @@
+item,value,note
+Hold start,2026-01-01,Model month 1
+Hold end / sale,2030-12-01,Month 60
+Projection months,72,2026-2031; sale uses 2031 NOI
+Inflation,3.0%,Annual step in Jan of each year after 2026
+Vacancy / credit loss,12.0%,of PGI every month
+Mgmt fee,3.0%,of EGI
+Reimbursable opex Year 1,$14.00 / SF,inflates 3%/yr
+Implied GLA,"145,000 SF","Year-1 reimb exp $2,030,000 / $14"
+Structural reserve Y1,$0.25 / SF,"$36,250 annual, inflates 3%"
+Discount rate (unlevered NPV),9.5%,used for going-in NPV
+Exit cap rate,8.5%,applied to 2031 NOI
+2031 NOI (exit),2073811,from model
+Reversion / sale price,24397781,2031 NOI / 8.5%
+Going-in value (NPV @ 9.5%),26538480,sum of discounted BTCF + reversion
+LTV,70%,of NPV value
+Loan amount,18576936,70% LTV
+Interest rate,5.50%,fixed
+Amortization,360 months,30-year
+Monthly debt service,105477.80,level payment
+Balloon month 60,17176347,remaining principal
+Equity required,7961544,Value − Loan
+Partnership split,80 / 20,Money partner / Developer
+Pref rate,8.0%,current-pay pref
+Promote,50 / 50,of cash after current-year pref

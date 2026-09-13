@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Property Cash Flow · Operations</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <a class="brand" href="index.html">
+        <div class="mark">RN</div>
+        <div>
+          <h1>Property cash flow</h1>
+          <p class="tag">Ritu Neupane · 145,000 SF · Jan 2026 – Dec 2030</p>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html">Overview</a>
+        <a class="on" href="operations.html">Operations</a>
+        <a href="returns.html">Returns</a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap">
+    <p class="lede">Vacancy is 12% of PGI. Management is 3% of EGI. Expenses inflate 3% a year. Tenant A is 50,000 SF through December 2028. After that the stack is B, C, and D plus percentage rent.</p>
+    <div class="card" style="margin-top:0"><h2>Income mix</h2><p class="note">Base rent by tenant plus recoveries.</p><canvas id="mixChart"></canvas></div>
+    <div class="card"><h2>Monthly NOI</h2><p class="note">72-month path. Sale uses 2031 NOI.</p><canvas id="monthlyChart"></canvas></div>
+    <div class="card"><h2>Annual results</h2>
+      <table><thead><tr><th>Year</th><th>NOI</th><th>DSCR</th><th>Debt yield</th><th>Cash-on-cash</th></tr></thead>
+      <tbody>
+        <tr><td>2026</td><td>$3.15M</td><td>2.49x</td><td>16.9%</td><td>23.2%</td></tr>
+        <tr><td>2027</td><td>$3.62M</td><td>2.86x</td><td>19.5%</td><td>29.1%</td></tr>
+        <tr><td>2028</td><td>$3.65M</td><td>2.89x</td><td>19.7%</td><td>29.5%</td></tr>
+        <tr><td>2029</td><td>$1.78M</td><td>1.41x</td><td>9.6%</td><td>6.0%</td></tr>
+        <tr><td>2030</td><td>$1.89M</td><td>1.49x</td><td>10.2%</td><td>7.3%</td></tr>
+      </tbody></table>
+    </div>
+  </div>
+  <footer>Figures match the source 72-month pro forma.</footer>
+  <script>
+    const navy="#12263A", navy2="#1B3A4B", gold="#C4A574", gold2="#A68554", pale="#D9D1C3";
+    Chart.defaults.color="#5C6B73";
+    new Chart(document.getElementById("mixChart"),{type:"bar",data:{labels:["2026","2027","2028","2029","2030"],datasets:[{label:"A",data:[1.60,1.60,1.60,0,0],backgroundColor:navy,stack:"r"},{label:"B",data:[0.77,1.32,1.32,1.32,1.365],backgroundColor:navy2,stack:"r"},{label:"C",data:[1.61,1.658,1.708,1.759,1.812],backgroundColor:gold2,stack:"r"},{label:"D + %",data:[1.20,1.20,1.26,1.395,1.50],backgroundColor:gold,stack:"r"},{label:"Recoveries",data:[0.884,0.915,0.915,0.215,0.215],backgroundColor:pale,stack:"r"}]},options:{plugins:{legend:{position:"bottom"}},scales:{x:{stacked:true,grid:{display:false}},y:{stacked:true,ticks:{callback:v=>"$"+v+"M"},grid:{color:"#EDE7DB"}}}}});
+    const monthly=[204,204,204,204,204,304,304,304,304,304,304,304,302,302,302,302,302,302,302,302,302,302,302,302,304,304,304,304,304,304,304,304,304,304,304,304,149,149,149,149,149,149,149,149,149,149,149,149,154,154,154,154,154,154,154,154,164,164,164,164,173,173,173,173,173,173,173,173,173,173,173,173];
+    new Chart(document.getElementById("monthlyChart"),{type:"line",data:{labels:Array.from({length:72},(_,i)=>i+1),datasets:[{data:monthly,borderColor:navy,pointRadius:0,borderWidth:2,tension:0.12}]},options:{plugins:{legend:{display:false}},scales:{y:{ticks:{callback:v=>"$"+v+"k"},grid:{color:"#EDE7DB"}},x:{ticks:{maxTicksLimit:8},grid:{display:false}}}}});
+  </script>
+</body>
+</html>

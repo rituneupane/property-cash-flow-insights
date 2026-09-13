@@ -1,0 +1,5 @@
+tenant,gla_sf,start_month,end_month,start_monthly_rent,y1_annual_rent,notes
+Tenant A,50000,1,36,133333.33,1600000,50,000 SF through Dec 2028
+Tenant B,5357,6,72,110000,770000,Starts Jun 2026; step-up Sep 2030
+Tenant C,10000,1,72,134166.67,1610000,3% January bumps
+Tenant D,,1,72,100000,1200000,Flat base plus percentage rent

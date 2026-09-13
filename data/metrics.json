@@ -1,0 +1,17 @@
+{
+  "property_value_npv": 26538479.63,
+  "loan": 18576935.74,
+  "equity": 7961543.89,
+  "reversion": 24397780.62,
+  "balloon": 17176346.90,
+  "monthly_ds": 105477.80,
+  "unlevered_irr": 0.0943,
+  "levered_irr": 0.5303,
+  "noi_2028": 3653455.63,
+  "noi_2029": 1784542.54,
+  "average_dscr": 2.2276,
+  "lp_irr": 0.3894,
+  "gp_irr": 0.8947,
+  "lp_equity_multiple": 4.0608,
+  "gp_equity_multiple": 14.6433
+}
