@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Property Cash Flow · Returns</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <a class="brand" href="index.html">
+        <div class="mark">RN</div>
+        <div>
+          <h1>Property cash flow</h1>
+          <p class="tag">Ritu Neupane · 145,000 SF · Jan 2026 to Dec 2030</p>
+        </div>
+      </a>
+      <nav>
+        <a href="index.html">Overview</a>
+        <a href="operations.html">Operations</a>
+        <a class="on" href="returns.html">Returns</a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap">
+    <p class="lede">Loan is $18.58 million, 70% LTV, 5.5%, 30-year amortization. Monthly debt service is $105,478. Equity is $7.96 million. Money partner 80%, developer 20%, 8% pref, then 50 / 50.</p>
+    <div class="card" style="margin-top:0"><h2>Coverage</h2><p class="note">DSCR vs cash-on-cash on $8.0M equity. 2029 stays above 1.25x.</p><div class="cv"><canvas id="coverChart"></canvas></div></div>
+    <div class="row2">
+      <div class="card" style="margin-top:0"><h2>Capital stack</h2>
+        <div class="tbl"><table><thead><tr><th></th><th>LP 80%</th><th>GP 20%</th></tr></thead>
+        <tbody>
+          <tr><td>Equity</td><td>$6.37M</td><td>$1.59M</td></tr>
+          <tr><td>8% pref</td><td>$510k / yr</td><td>$127k / yr</td></tr>
+          <tr><td>Distributions</td><td>$10.46M</td><td>$4.34M</td></tr>
+          <tr><td>IRR</td><td>14.2%</td><td>43.5%</td></tr>
+          <tr><td>Multiple</td><td>1.64x</td><td>2.73x</td></tr>
+        </tbody></table></div>
+      </div>
+      <div class="card" style="margin-top:0"><h2>Exit</h2>
+        <div class="tbl"><table>
+          <tbody>
+            <tr><td>2031 NOI</td><td>$2.07M</td></tr>
+            <tr><td>Exit cap</td><td>8.5%</td></tr>
+            <tr><td>Sale price</td><td>$24.40M</td></tr>
+            <tr><td>Balloon (mo 60)</td><td>$17.18M</td></tr>
+            <tr><td>Unlevered IRR</td><td>9.4%</td></tr>
+            <tr><td>Net sale to equity</td><td>$7.22M</td></tr>
+            <tr><td>Levered IRR</td><td>19.6% (1.86x)</td></tr>
+          </tbody>
+        </table></div>
+      </div>
+    </div>
+    <div class="card"><h2>Waterfall by year</h2><p class="note">8% pref paid 80/20 from each year's cash; shortfall carries to the sale. Sale pays carried pref, then capital 80/20, then 50/50.</p>
+      <div class="tbl"><table><thead><tr><th>Year</th><th>Equity cash</th><th>Pref</th><th>Capital back</th><th>50 / 50</th><th>To LP</th><th>To GP</th></tr></thead>
+        <tbody>
+          <tr><td>2026</td><td>$1.85M</td><td>$0.64M</td><td>$0.00M</td><td>$1.21M</td><td>$1.12M</td><td>$0.73M</td></tr>
+          <tr><td>2027</td><td>$2.32M</td><td>$0.64M</td><td>$0.00M</td><td>$1.68M</td><td>$1.35M</td><td>$0.97M</td></tr>
+          <tr><td>2028</td><td>$2.35M</td><td>$0.64M</td><td>$0.00M</td><td>$1.71M</td><td>$1.37M</td><td>$0.98M</td></tr>
+          <tr><td>2029</td><td>$0.48M</td><td>$0.48M</td><td>$0.00M</td><td>$0.00M</td><td>$0.38M</td><td>$0.10M</td></tr>
+          <tr><td>2030</td><td>$7.80M</td><td>$0.79M</td><td>$7.01M</td><td>$0.00M</td><td>$6.24M</td><td>$1.56M</td></tr>
+          <tr><td><strong>Total</strong></td><td><strong>$14.80M</strong></td><td>$3.18M</td><td>$7.01M</td><td>$4.60M</td><td><strong>$10.46M</strong></td><td><strong>$4.34M</strong></td></tr>
+        </tbody></table></div>
+    </div>
+    <div class="card"><h2>Checks</h2><p class="note">Model integrity checks.</p>
+      <div class="tbl"><table><thead><tr><th>Check</th><th>Value</th><th>Should equal</th><th>Result</th></tr></thead>
+        <tbody>
+          <tr><td>Sources = uses</td><td>$26,538,480</td><td>$26,538,480</td><td>PASS</td></tr>
+          <tr><td>Loan = 70% LTV</td><td>$18,576,936</td><td>$18,576,936</td><td>PASS</td></tr>
+          <tr><td>Distributions = distributable cash</td><td>$14,798,308</td><td>$14,798,308</td><td>PASS</td></tr>
+          <tr><td>Distributions = cash, every year</td><td>$0</td><td>$0</td><td>PASS</td></tr>
+          <tr><td>Net sale</td><td>$7,221,434</td><td>$7,221,434</td><td>PASS</td></tr>
+          <tr><td>Cash-on-cash ties to annual summary</td><td>0.0 pts</td><td>0.0 pts</td><td>PASS</td></tr>
+          <tr><td>No unpaid pref after sale</td><td>$0</td><td>$0</td><td>PASS</td></tr>
+        </tbody></table></div>
+    </div>
+    <div class="take">Debt holds through the rollover. Returns are driven by leverage and the 2030 sale. Equity gets <strong>$14.80M</strong> back on $7.96M. LP multiple is <strong>1.64x</strong>. GP multiple is <strong>2.73x</strong>.</div>
+  </div>
+  <footer>Source: 72-month property pro forma; returns rebuilt from annual cash flows (annual periods, year-end cash). · <a href="https://github.com/rituneupane/property-cash-flow-insights" style="color:inherit">View code</a></footer>
+  <script>
+    const navy="#111111", gold="#3E5622";
+    Chart.defaults.color="#5F5F66"; Chart.defaults.maintainAspectRatio=false;
+    new Chart(document.getElementById("coverChart"),{type:"bar",data:{labels:["2026","2027","2028","2029","2030"],datasets:[{label:"DSCR",data:[2.49,2.86,2.89,1.41,1.49],backgroundColor:"#4A4A4A",order:2},{label:"Cash-on-cash",data:[23.2,29.1,29.5,6.0,7.3],type:"line",yAxisID:"y1",borderColor:gold,backgroundColor:gold,pointBackgroundColor:"#FFFFFF",pointBorderColor:gold,pointRadius:5,borderWidth:3,tension:0,order:1}]},options:{plugins:{legend:{position:"bottom"}},scales:{y:{title:{display:true,text:"DSCR"},min:0,max:3.5,ticks:{stepSize:0.5,callback:v=>v.toFixed(1)+"x"},grid:{color:"#ECECF0"}},y1:{position:"right",min:0,max:35,grid:{drawOnChartArea:false},ticks:{stepSize:5,callback:v=>v+"%"},title:{display:true,text:"Cash-on-cash"}},x:{grid:{display:false}}}}});
+  </script>
+</body>
+</html>

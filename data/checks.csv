@@ -1,0 +1,8 @@
+check,left_label,left,right_label,right,difference,pass
+Sources = uses,Loan + equity,26538479.63,Purchase price (NPV value),26538479.63,0.0,PASS
+Loan = 70% LTV,Loan,18576935.74,0.70 x value,18576935.74,-0.0,PASS
+Distributions = distributable cash,LP + GP distributions,14798307.72,Sum of equity cash flows 2026-2030,14798307.72,0.0,PASS
+"Distributions = cash, every year",Largest yearly gap ($),0.0,Target,0.0,0.0,PASS
+Net sale,Sale price - balloon,7221433.72,Equity proceeds at sale,7221433.72,0.0,PASS
+Cash-on-cash ties to annual_summary.csv,Largest gap (pts),0.0,Target,0.0,0.0,PASS
+No unpaid pref after sale,Accrued pref ($),0.0,Target,0.0,0.0,PASS

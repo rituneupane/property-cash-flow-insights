@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Property Cash Flow · Overview</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+</head>
+<body>
+  <header>
+    <div class="bar">
+      <a class="brand" href="index.html">
+        <div class="mark">RN</div>
+        <div>
+          <h1>Property cash flow</h1>
+          <p class="tag">Ritu Neupane · 145,000 SF · Jan 2026 to Dec 2030</p>
+        </div>
+      </a>
+      <nav>
+        <a class="on" href="index.html">Overview</a>
+        <a href="operations.html">Operations</a>
+        <a href="returns.html">Returns</a>
+      </nav>
+    </div>
+  </header>
+  <div class="wrap">
+    <p class="lede">I ran the 72-month pro forma on a 145,000 SF box. Value is $26.54 million. Debt is 70% LTV at 5.5%. Tenant A ends December 2028. That is the year NOI steps down.</p>
+    <div class="kpis">
+      <div class="kpi"><div class="label">Property value</div><div class="value">$26.5M</div><div class="sub">NPV @ 9.5%</div></div>
+      <div class="kpi"><div class="label">Loan / equity</div><div class="value">70%</div><div class="sub">$18.6M debt · $8.0M equity</div></div>
+      <div class="kpi"><div class="label">Unlevered IRR</div><div class="value">9.4%</div><div class="sub">5-year hold</div></div>
+      <div class="kpi"><div class="label">Levered IRR</div><div class="value">19.6%</div><div class="sub">1.86x on $8.0M equity</div></div>
+      <div class="kpi"><div class="label">Sale price</div><div class="value">$24.4M</div><div class="sub">2031 NOI $2.07M / 8.5%</div></div>
+    </div>
+    <div class="row">
+      <div class="card" style="margin-top:0"><h2>NOI by year</h2><p class="note">Tenant A lease ends December 2028.</p><div class="cv"><canvas id="noiChart"></canvas></div></div>
+      <div class="card" style="margin-top:0"><h2>Rent roll</h2>
+        <div class="tbl"><table><thead><tr><th>Tenant</th><th>SF</th><th>Lease</th></tr></thead>
+        <tbody>
+          <tr><td>A</td><td>50,000</td><td>Through Dec 2028</td></tr>
+          <tr><td>B</td><td>~5,400</td><td>From Jun 2026</td></tr>
+          <tr><td>C</td><td>10,000</td><td>Full hold + 3% bumps</td></tr>
+          <tr><td>D</td><td>n/a*</td><td>Flat base + % rent</td></tr>
+        </tbody></table></div>
+        <p class="note" style="margin-top:8px">*Tenant D SF is not in the source pro forma. A + B + C = 65,357 SF, so D plus any vacant space is at most 79,643 SF. Recoveries track A, B and C only (2026: 63,125 SF × $14 = $0.88M), which fits a gross or percentage-rent lease for D.</p>
+      </div>
+    </div>
+    <div class="take">Years 1 to 3 carry the income. Year 4 is the lease event. Unlevered IRR is <strong>9.4%</strong>. Levered IRR is <strong>19.6%</strong> (1.86x). Average DSCR is <strong>2.23x</strong>. Exit is $24.4 million on 2031 NOI at an 8.5% cap.</div>
+    <div class="jumps">
+      <a href="operations.html"><span>View</span>Operations</a>
+      <a href="returns.html"><span>View</span>Returns</a>
+    </div>
+  </div>
+  <footer>Source: 72-month property pro forma; returns rebuilt from annual cash flows (annual periods, year-end cash). · <a href="https://github.com/rituneupane/property-cash-flow-insights" style="color:inherit">View code</a></footer>
+  <script>
+    const navy="#111111", gold="#A3B18A", gold2="#3E5622";
+    Chart.defaults.color="#5F5F66"; Chart.defaults.maintainAspectRatio=false;
+    new Chart(document.getElementById("noiChart"),{type:"bar",data:{labels:["2026","2027","2028","2029","2030"],datasets:[{data:[3.15,3.62,3.65,1.78,1.89],backgroundColor:[navy,navy,navy,gold2,gold],borderRadius:5}]},options:{plugins:{legend:{display:false}},scales:{y:{min:0,max:4,ticks:{stepSize:1,callback:v=>"$"+v+"M"},grid:{color:"#ECECF0"}},x:{grid:{display:false}}}}});
+  </script>
+</body>
+</html>
